@@ -71,12 +71,11 @@ for data in read_file(f):
     campaign_zip_value = ZIP_CODE + CMTE_ID + TRANSACTION_DT[-4:]
     #Check if the ZIP_CODE and NAME exsist in the unique_cust_zip_dict and if not then load it to unique_cust_zip_dict
     if zip_name not in unique_cust_zip_dict:
-        ##file_write.write("I am a first customer")
+
 
         unique_cust_zip_dict[zip_name] = TRANSACTION_DT[-4:]
     #campaign_zip_dt_dict keeps track of the dollar amounts by ZIP_CODE,CMTE_ID and TRANSACTION_YEAR
         if campaign_zip_value in campaign_zip_dt_dict:
-            #print campaign_zip_dt_dict[campaign_zip_value]
             campaign_zip_dt_dict[campaign_zip_value].append(TRANSACTION_AMT)
         else:
             campaign_zip_dt_dict[campaign_zip_value] = [TRANSACTION_AMT]
