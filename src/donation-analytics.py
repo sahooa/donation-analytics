@@ -39,8 +39,6 @@ unique_cust_zip_dict = {}
 #Create a Dictionary of Campaign,Zip and Date as KEY and VALUES as Transaction Amount in a list format
 campaign_zip_dt_dict = {}
 
-first_cust_zip_dt_dict = {}
-
 #Variable to keep track of the record count to know the progress
 count = 0
 
@@ -96,6 +94,8 @@ for data in read_file(f):
 
 
     # Calculate the percentile of the list values of the Dcitionary with Transaction amount
+    #There is a Numpy function to calculate Percentile but wasnt sure that was working since i could see -ve values so wasnt sure so took the approach to write my own
+
         length_list = len(campaign_zip_dt_dict[campaign_zip_value])
         ordinal_rank = int(math.ceil((int(percentile) / 100.0) * length_list))
         percentile_no = sorted(campaign_zip_dt_dict[campaign_zip_value])[ordinal_rank - 1]
